@@ -23,10 +23,14 @@ gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
-gem 'tailwindcss-rails', '~> 2.0'
-gem "slim-rails"
+
 gem "devise"
+gem 'dotenv-rails', '~> 2.8'
 gem 'money-rails'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+gem "slim-rails"
+gem 'tailwindcss-rails', '~> 2.0'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
