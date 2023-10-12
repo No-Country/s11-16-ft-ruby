@@ -1,2 +1,2 @@
-class Question < ApplicationRecord
+class Question < SessionQa
 end
