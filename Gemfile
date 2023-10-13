@@ -31,6 +31,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem "slim-rails"
 gem 'tailwindcss-rails', '~> 2.0'
+gem "cloudinary"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
