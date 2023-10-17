@@ -3,4 +3,6 @@ h1 Show this product
 div
   = link_to "edit this product", edit_product_path(@product)
 div
+  = link_to "Delete this product", product_path(@product), data: { turbo_method: :delete }
+div
   = link_to "Back to products", products_path

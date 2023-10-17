@@ -15,35 +15,29 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
+    if @product.save
+      redirect_to product_path(@product), notice: 'Product created.'
 
-      else
-        format.html { render :new, status: :unprocessable_entity }
+    else
+      render :new, status: :unprocessable_entity
 
-      end
     end
   end
 
   def edit; end
 
   def update
-    respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to product_url(@product), notice: "Product was successfully updated." }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if @product.update(product_params)
+      redirect_to product_path(@product), notice: 'Product updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @product.destroy
 
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
-    end
+    redirect_to products_path, notice: 'Product was successfully destroyed.'
   end
 
   private
