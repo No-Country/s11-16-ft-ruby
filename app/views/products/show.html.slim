@@ -1,0 +1,6 @@
+h1 Show this product
+== render "product", product: @product
+div
+  = link_to "edit this product", edit_product_path(@product)
+div
+  = link_to "Back to products", products_path

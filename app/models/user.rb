@@ -28,6 +28,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
   has_one_attached :avatar
+  has_many :products
 
   def self.from_omniauth(access_token)
     data = access_token.info
