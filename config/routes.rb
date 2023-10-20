@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: %i[index]
-  resources :products
+  get "/products/my_products", to: "products#my_products"
+  resources :products do
+  end
   resources :categories
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.
 
