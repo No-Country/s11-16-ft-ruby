@@ -2,6 +2,8 @@
 
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     @products = Product.all
   end
@@ -13,14 +15,13 @@ class ProductsController < ApplicationController
   end
 
   def create
+
     @product = Product.new(product_params)
 
     if @product.save
       redirect_to product_path(@product), notice: 'Product created.'
-
     else
       render :new, status: :unprocessable_entity
-
     end
   end
 
@@ -47,6 +48,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
+    params[:product][:user_id] = current_user.id
     params.require(:product).permit(:title, :description, :price, :category_id, :user_id)
   end
 end

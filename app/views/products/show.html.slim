@@ -1,8 +1,10 @@
 h1 Show this product
 == render "product", product: @product
-div
-  = link_to "edit this product", edit_product_path(@product)
-div
-  = link_to "Delete this product", product_path(@product), data: { turbo_method: :delete }
+
+- unless current_user.nil? || @product.user_id != current_user.id
+    div
+      = link_to "edit this product", edit_product_path(@product)
+    div
+      = link_to "Delete this product", product_path(@product), data: { turbo_method: :delete }
 div
   = link_to "Back to products", products_path
