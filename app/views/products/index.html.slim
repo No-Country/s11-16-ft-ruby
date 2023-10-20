@@ -2,7 +2,15 @@ h1 Products list
 
 #products
   - @products.each do |product|
-    == render product
+    p
+      | Title: 
+      = product.title
+    p
+      | Price: 
+      = product.price
+    div
+      = image_tag(product.images.first, :width => 200) if product.images.attached?
+
     p
       = link_to "Show this product", product
     br

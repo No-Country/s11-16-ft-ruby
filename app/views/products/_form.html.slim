@@ -20,6 +20,9 @@
   div
     = form.label :category_id, style: "display: block"
     = form.select :category_id, options_for_select(Category.all.collect { | category | [category.name, category.id] }), {}, {}
+  div 
+    = form.label :images, style: "display: block"
+    = form.file_field :images, multiple: true
 
   div
     = form.submit
