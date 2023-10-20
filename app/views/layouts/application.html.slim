@@ -15,13 +15,14 @@ html
     p.alert
       = alert
     div.hola.my-4
-      - if current_user 
-        = link_to "logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "bg-yellow-500 hover:bg-green-700 text-white font-bold py-2 px-4 mx-2 rounded"
-      - else
-        = link_to "login", new_user_session_path, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mx-2 rounded"
-    
       = link_to "products", products_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded"
       = link_to "categories", categories_path, class: "bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 mx-2 rounded"
 
+      - if current_user 
+        = link_to "profile", users_path, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mx-2 rounded"
+        = link_to "my products", products_my_products_path, class: "bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 mx-2 rounded"
+        = link_to "logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "bg-yellow-500 hover:bg-green-700 text-white font-bold py-2 px-4 mx-2 rounded"
+      - else
+        = link_to "login", new_user_session_path, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mx-2 rounded"
       
     = yield
