@@ -53,6 +53,6 @@ class ProductsController < ApplicationController
 
   def product_params
     params[:product][:user_id] = current_user.id
-    params.require(:product).permit(:title, :description, :price, :category_id, :user_id)
+    params.require(:product).permit(:title, :description, :price, :category_id, :user_id, :images => [])
   end
 end
