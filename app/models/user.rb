@@ -29,6 +29,8 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :products
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_products, through: :favorites, source: :product
 
   def self.from_omniauth(access_token)
     data = access_token.info

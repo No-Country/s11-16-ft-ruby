@@ -1,0 +1,8 @@
+- if current_user
+  h2>Favoritos de #{current_user.username}
+  - if @favorite_products.any?
+    ul
+      - @favorite_products.each do |product|
+        li= link_to product.title, product
+  - else
+    p>No has marcado ningún producto como favorito aún.

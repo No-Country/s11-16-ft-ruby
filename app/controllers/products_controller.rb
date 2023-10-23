@@ -1,12 +1,14 @@
 # frozen_string_literal: true
-
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
   def index
     @products = Product.all
   end
 
-  def show; end
+  def show
+    @product = Product.find(params[:id])
+    @current_user = current_user
+  end
 
   def new
     @product = Product.new

@@ -1,0 +1,8 @@
+div#favorite
+  - if current_user
+    - if @product.favorite?(current_user)
+      = link_to "Quitar de favoritos", favorite_product_path(@product), method: :delete, data: { turbo_stream: "replace", target: "favorite" }
+    - else
+      = link_to "Agregar a favoritos", favorite_product_path(@product), method: :post, data: { turbo_stream: "replace", target: "favorite" }
+  - else
+    = link_to "Sing in", new_user_session_path

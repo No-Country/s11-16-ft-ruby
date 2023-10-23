@@ -1,8 +1,11 @@
+
 h1 Show this product
-== render "product", product: @product
+== render "product", product: @product, current_user: current_user
 div
   = link_to "edit this product", edit_product_path(@product)
 div
   = link_to "Delete this product", product_path(@product), data: { turbo_method: :delete }
 div
   = link_to "Back to products", products_path
+div
+  == render partial: 'favorite', locals: { product: @product, current_user: current_user }

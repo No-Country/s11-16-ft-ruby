@@ -22,7 +22,15 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Product < ApplicationRecord
+  include Favoritable
+
   belongs_to :category
   belongs_to :user
+  has_many :favorites, dependent: :destroy
   has_many_attached :images
+
+  def favorite?(user)
+    favorites.exists?(user: user)
+  end
+
 end
